@@ -1,0 +1,371 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(/images/blog1_image.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    direction: ltr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.modal,
+.edit-container {
+    display: none;
+}
+
+.modal-content,
+.edit-content {}
+
+#contactDetailsModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.info-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.info-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    width: 300px;
+}
+
+.info-modal-content {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-modal h2 {
+    margin-top: 0;
+}
+
+.info-modal button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-modal button:hover {
+    background-color: #2980b9;
+}
+
+.modal,
+#addContactModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+}
+
+.modal-content,
+#addContactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label,
+#addContactModal label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.modal input,
+#addContactModal input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal button,
+#addContactModal button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal button:hover,
+#addContactModal button:hover {
+    background-color: #27ae60;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-content label {
+    margin: 10px 0 5px;
+}
+
+.edit-content input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-content button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-content button:hover {
+    background-color: #27ae60;
+}
+
+.controls {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.title {
+
+    padding-top: 100px;
+    margin-top: -500px;
+}
+
+button,
+#search {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-all-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.add-contact-button {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#search {
+    padding: 8px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.list {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list th,
+.list td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.list th {
+    background-color: #3498db;
+    color: white;
+}
+
+.contact-image-name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.contact-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.contact-name {
+    font-size: 1em;
+}
+
+.contact-item {
+    background-color: #f9f9f9;
+}
+
+.contact-item:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    margin-left: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-button {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.edit-button {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 20px;
+}

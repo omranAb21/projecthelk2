@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="omran.css">
+  <title>הוסיף אנשי קשר</title>
+</head>
+
+<body>
+  <h1 class="title">הוסיף אנשי קשר</h1>
+
+  <div class="container">
+    <div class="controls">
+      <button class="delete-all-button" onclick="deleteAllContacts()">מחק הכל</button>
+      <button class="add-contact-button" onclick="openAddContactModal()">הוסף איש קשר</button>
+      <div class="search-container">
+        <input type="text" id="search" placeholder="חפש איש קשר...">
+        <button class="search-button" onclick="searchContacts()">חפש</button>
+      </div>
+    </div>
+
+    <table class="list" id="contactList">
+      <thead>
+        <tr>
+          <th>איש קשר</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="contact-item">
+          <td>
+            <div class="contact-image-name">
+              <img src="/images/google_contacts_logo.webp" alt="Contact Image" class="contact-image">
+              <span class="contact-name">עמראן אבוליל</span>
+              <span class="contact-age" style="display:none;">20</span>
+              <span class="contact-phone" style="display:none;">0547712912</span>
+              <span class="contact-address" style="display:none;">עין מאהל</span>
+            </div>
+          </td>
+          <td>
+            <button class="info-button" onclick="showInfo(this)">פרטים</button>
+            <button class="edit-button" onclick="openEditContactForm(this)">עריכה</button>
+            <button class="delete-button" onclick="deleteContact(this)">מחק</button>
+          </td>
+        </tr>
+        <tr class="contact-item">
+          <td>
+            <div class="contact-image-name">
+              <img src="/images/google_contacts_logo.webp" alt="Contact Image" class="contact-image">
+              <span class="contact-name">נירא אבו סלאח</span>
+              <span class="contact-age" style="display:none;">19</span>
+              <span class="contact-phone" style="display:none;">0524674317</span>
+              <span class="contact-address" style="display:none;">מגאר</span>
+            </div>
+          </td>
+          <td>
+            <button class="info-button" onclick="showInfo(this)">פרטים</button>
+            <button class="edit-button" onclick="openEditContactForm(this)">עריכה</button>
+            <button class="delete-button" onclick="deleteContact(this)">מחק</button>
+          </td>
+        </tr>
+        <tr class="contact-item">
+          <td>
+            <div class="contact-image-name">
+              <img src="/images/google_contacts_logo.webp" alt="Contact Image" class="contact-image">
+              <span class="contact-name">מחמד</span>
+              <span class="contact-age" style="display:none;">34</span>
+              <span class="contact-phone" style="display:none;">0547861465</span>
+              <span class="contact-address" style="display:none;">תל אביב</span>
+            </div>
+          </td>
+          <td>
+            <button class="info-button" onclick="showInfo(this)">פרטים</button>
+            <button class="edit-button" onclick="openEditContactForm(this)">עריכה</button>
+            <button class="delete-button" onclick="deleteContact(this)">מחק</button>
+          </td>
+        </tr>
+        <tr class="contact-item">
+          <td>
+            <div class="contact-image-name">
+              <img src="/images/google_contacts_logo.webp" alt="Contact Image" class="contact-image">
+              <span class="contact-name">קוהן</span>
+              <span class="contact-age" style="display:none;">28</span>
+              <span class="contact-phone" style="display:none;">0531234567</span>
+              <span class="contact-address" style="display:none;">כפר סבא</span>
+            </div>
+          </td>
+          <td>
+            <button class="info-button" onclick="showInfo(this)">פרטים</button>
+            <button class="edit-button" onclick="openEditContactForm(this)">עריכה</button>
+            <button class="delete-button" onclick="deleteContact(this)">מחק</button>
+          </td>
+        </tr>
+        <tr class="contact-item">
+          <td>
+            <div class="contact-image-name">
+              <img src="/images/google_contacts_logo.webp" alt="Contact Image" class="contact-image">
+              <span class="contact-name">סארה</span>
+              <span class="contact-age" style="display:none;">31</span>
+              <span class="contact-phone" style="display:none;">0547654321</span>
+              <span class="contact-address" style="display:none;">תל אביב</span>
+            </div>
+          </td>
+          <td>
+            <button class="info-button" onclick="showInfo(this)">פרטים</button>
+            <button class="edit-button" onclick="openEditContactForm(this)">עריכה</button>
+            <button class="delete-button" onclick="deleteContact(this)">מחק</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="addContactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeAddContactModal()">&times;</span>
+      <h2>הוסף איש קשר</h2>
+      <form id="addContactForm">
+        <label for="contactNameInput">שם:</label>
+        <input type="text" id="contactNameInput" required>
+        <label for="contactAgeInput">גיל:</label>
+        <input type="number" id="contactAgeInput" required>
+        <label for="contactPhoneInput">טלפון:</label>
+        <input type="text" id="contactPhoneInput" required>
+        <label for="contactAddressInput">כתובת:</label>
+        <input type="text" id="contactAddressInput" required>
+        <button type="submit">הוסף</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="editContactContainer" class="edit-container">
+    <div class="edit-content">
+      <span class="close-button" onclick="closeEditContactForm()">&times;</span>
+      <h2>ערוך איש קשר</h2>
+      <form id="editContactForm">
+        <input type="hidden" id="editContactIndex">
+        <label for="editContactName">שם:</label>
+        <input type="text" id="editContactName" required>
+        <label for="editContactAge">גיל:</label>
+        <input type="number" id="editContactAge" required>
+        <label for="editContactPhone">טלפון:</label>
+        <input type="text" id="editContactPhone" required>
+        <label for="editContactAddress">כתובת:</label>
+        <input type="text" id="editContactAddress" required>
+        <button type="submit">שמור</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="infoModal" class="info-modal">
+    <div class="info-modal-content">
+      <span class="close-button" onclick="closeInfo()">&times;</span>
+      <h2>פרטי איש קשר</h2>
+      <p><strong>שם:</strong> <span id="infoName"></span></p>
+      <p><strong>גיל:</strong> <span id="infoAge"></span></p>
+      <p><strong>טלפון:</strong> <span id="infoPhone"></span></p>
+      <p><strong>כתובת:</strong> <span id="infoAddress"></span></p>
+    </div>
+  </div>
+
+  <script src="omran.js"></script>
+</body>
+
+</html>
